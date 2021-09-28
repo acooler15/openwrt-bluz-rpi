@@ -30,6 +30,11 @@ define Package/$(PKG_NAME)
   URL:=https://github.com/RPi-Distro/bluez-firmware.git
 endef
 
+define Package/$(PKG_NAME)/description
+  Bluetooth firmware files for RaspberryPi hardware
+endef
+
+
 define Build/Configure
 true
 endef
@@ -43,4 +48,4 @@ define Package/$(PKG_NAME)/install
 	$(CP) $(PKG_BUILD_DIR)/broadcom/*.hcd $(1)/lib/firmware/brcm/
 endef
 
-$(eval $(call BuildPackage,rpi-bluez-firmware))
+$(eval $(call BuildPackage,bluez-firmware-rpidistro))
