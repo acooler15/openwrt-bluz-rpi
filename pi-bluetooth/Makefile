@@ -50,6 +50,9 @@ define Package/$(PKG_NAME)/install
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/pi-bluetooth.init $(1)/etc/init.d/pi-bluetooth
+
+	$(INSTALL_DIR) $(1)/etc/uci-defaults
+	$(INSTALL_BIN) ./files/pi-blutoosh $(1)/etc/uci-defaults/pi-blutoosh
 endef
 
 $(eval $(call BuildPackage,pi-bluetooth))
