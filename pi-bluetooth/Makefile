@@ -7,7 +7,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pi-bluetooth
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_MAINTAINER:=acooler15 <acooler15@foxmail.com>
 PKG_LICENSE:=GPL-2.0-only
@@ -50,9 +50,6 @@ define Package/$(PKG_NAME)/install
 
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/pi-bluetooth.init $(1)/etc/init.d/pi-bluetooth
-
-	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_BIN) ./files/pi-blutoosh $(1)/etc/uci-defaults/pi-blutoosh
 endef
 
 $(eval $(call BuildPackage,pi-bluetooth))

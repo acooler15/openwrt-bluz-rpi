@@ -1,8 +1,0 @@
-#!/bin/sh
-
-ls /dev/ | grep -q serial1
-[ "$?" != 0 ] && ln -s /dev/ttyAMA0 /dev/serial1
-
-[ ! -x "/bin/hciconfig" ] && ln -s /usr/bin/hciconfig /bin/hciconfig
-
-exit 0

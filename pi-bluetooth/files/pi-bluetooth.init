@@ -6,5 +6,9 @@ START=61
 USE_PROCD=1
 
 start_service() {
+	ls /dev/ | grep -q serial1
+	[ "$?" != 0 ] && ln -s /dev/ttyAMA0 /dev/serial1 > /dev/null
+	[ ! -x "/bin/hciconfig" ] && [ -x "/usr/bin/hciconfig" ] && ln -s /usr/bin/hciconfig /bin/hciconfig > /dev/null
+
 	/usr/bin/btuart && /usr/bin/bthelper hci0
 }
